@@ -37,5 +37,11 @@ namespace Veterinario
 
             panelLogin.Visible = false;
         }
+
+        private void btnDef_Click(object sender, EventArgs e)
+        {
+            txtDef.Visible = true;
+            txtSeta.Visible = true;
+        }
     }
 }

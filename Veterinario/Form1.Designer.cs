@@ -34,6 +34,8 @@
             btnHistoric = new Button();
             btnCons = new Button();
             btnClients = new Button();
+            txtSeta = new Label();
+            txtDef = new Label();
             panelLogin = new Panel();
             button7 = new Button();
             txtPass = new TextBox();
@@ -62,6 +64,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(txtSeta);
+            splitContainer1.Panel2.Controls.Add(txtDef);
             splitContainer1.Panel2.Controls.Add(panelLogin);
             splitContainer1.Size = new Size(1146, 643);
             splitContainer1.SplitterDistance = 136;
@@ -75,6 +79,7 @@
             btnDef.TabIndex = 7;
             btnDef.Text = "Definições";
             btnDef.UseVisualStyleBackColor = true;
+            btnDef.Click += btnDef_Click;
             // 
             // panelBtn
             // 
@@ -112,6 +117,30 @@
             btnClients.TabIndex = 0;
             btnClients.Text = "Clientes";
             btnClients.UseVisualStyleBackColor = true;
+            // 
+            // txtSeta
+            // 
+            txtSeta.AutoSize = true;
+            txtSeta.Font = new Font("Segoe UI", 40F);
+            txtSeta.ForeColor = Color.Red;
+            txtSeta.Location = new Point(3, 544);
+            txtSeta.Name = "txtSeta";
+            txtSeta.Size = new Size(844, 72);
+            txtSeta.TabIndex = 6;
+            txtSeta.Text = "<<<<<<<<<<<<<<<<<<<<<<";
+            txtSeta.Visible = false;
+            // 
+            // txtDef
+            // 
+            txtDef.AutoSize = true;
+            txtDef.Font = new Font("Segoe UI", 40F);
+            txtDef.ForeColor = Color.Red;
+            txtDef.Location = new Point(36, 472);
+            txtDef.Name = "txtDef";
+            txtDef.Size = new Size(932, 72);
+            txtDef.TabIndex = 5;
+            txtDef.Text = "Professor mandou, EM CONSTRUÇÃO";
+            txtDef.Visible = false;
             // 
             // panelLogin
             // 
@@ -179,6 +208,7 @@
             Text = "Form1";
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             panelBtn.ResumeLayout(false);
@@ -203,5 +233,7 @@
         private Button button7;
         private Panel panelBtn;
         private Button btnDef;
+        private Label txtDef;
+        private Label txtSeta;
     }
 }
