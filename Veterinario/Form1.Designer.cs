@@ -39,18 +39,13 @@
             label2 = new Label();
             textBox1 = new TextBox();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
-            Cliente = new DataGridViewTextBoxColumn();
-            AdicionarPet = new DataGridViewTextBoxColumn();
-            button1 = new Button();
-            button2 = new Button();
+            btnDef = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             panelBtn.SuspendLayout();
             panelLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // splitContainer1
@@ -62,13 +57,11 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = SystemColors.ActiveCaption;
+            splitContainer1.Panel1.Controls.Add(btnDef);
             splitContainer1.Panel1.Controls.Add(panelBtn);
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(button2);
-            splitContainer1.Panel2.Controls.Add(button1);
-            splitContainer1.Panel2.Controls.Add(dataGridView1);
             splitContainer1.Panel2.Controls.Add(panelLogin);
             splitContainer1.Size = new Size(1146, 643);
             splitContainer1.SplitterDistance = 136;
@@ -167,42 +160,14 @@
             label1.TabIndex = 0;
             label1.Text = "Login";
             // 
-            // dataGridView1
+            // btnDef
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Cliente, AdicionarPet });
-            dataGridView1.Location = new Point(16, 413);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(535, 209);
-            dataGridView1.TabIndex = 5;
-            // 
-            // Cliente
-            // 
-            Cliente.HeaderText = "NomeCliente";
-            Cliente.Name = "Cliente";
-            // 
-            // AdicionarPet
-            // 
-            AdicionarPet.HeaderText = "Add Pet";
-            AdicionarPet.Name = "AdicionarPet";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(156, 437);
-            button1.Name = "button1";
-            button1.Size = new Size(55, 24);
-            button1.TabIndex = 6;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(217, 437);
-            button2.Name = "button2";
-            button2.Size = new Size(55, 24);
-            button2.TabIndex = 7;
-            button2.Text = "Del";
-            button2.UseVisualStyleBackColor = true;
+            btnDef.Location = new Point(16, 566);
+            btnDef.Name = "btnDef";
+            btnDef.Size = new Size(100, 39);
+            btnDef.TabIndex = 7;
+            btnDef.Text = "Definições";
+            btnDef.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -219,7 +184,6 @@
             panelBtn.ResumeLayout(false);
             panelLogin.ResumeLayout(false);
             panelLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -238,10 +202,6 @@
         private Button btnCons;
         private Button button7;
         private Panel panelBtn;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Cliente;
-        private DataGridViewTextBoxColumn AdicionarPet;
-        private Button button2;
-        private Button button1;
+        private Button btnDef;
     }
 }

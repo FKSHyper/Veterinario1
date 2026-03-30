@@ -23,9 +23,7 @@ namespace Veterinario
 
             if (cargo == "Rececionista")
             {
-                btn.Visible = false;
-                button5.Visible = false;
-                button4.Visible = false;
+                btnHistoric.Visible = false;
             }
 
             panelBtn.Visible = true;
