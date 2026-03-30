@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
+            btnDef = new Button();
             panelBtn = new Panel();
             btnHistoric = new Button();
             btnCons = new Button();
             btnClients = new Button();
             panelLogin = new Panel();
             button7 = new Button();
-            textBox2 = new TextBox();
+            txtPass = new TextBox();
             label2 = new Label();
-            textBox1 = new TextBox();
+            txtLogin = new TextBox();
             label1 = new Label();
-            btnDef = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -66,6 +66,15 @@
             splitContainer1.Size = new Size(1146, 643);
             splitContainer1.SplitterDistance = 136;
             splitContainer1.TabIndex = 0;
+            // 
+            // btnDef
+            // 
+            btnDef.Location = new Point(16, 566);
+            btnDef.Name = "btnDef";
+            btnDef.Size = new Size(100, 39);
+            btnDef.TabIndex = 7;
+            btnDef.Text = "Definições";
+            btnDef.UseVisualStyleBackColor = true;
             // 
             // panelBtn
             // 
@@ -107,9 +116,9 @@
             // panelLogin
             // 
             panelLogin.Controls.Add(button7);
-            panelLogin.Controls.Add(textBox2);
+            panelLogin.Controls.Add(txtPass);
             panelLogin.Controls.Add(label2);
-            panelLogin.Controls.Add(textBox1);
+            panelLogin.Controls.Add(txtLogin);
             panelLogin.Controls.Add(label1);
             panelLogin.Location = new Point(276, 198);
             panelLogin.Name = "panelLogin";
@@ -126,12 +135,12 @@
             button7.UseVisualStyleBackColor = true;
             button7.Click += button7_Click;
             // 
-            // textBox2
+            // txtPass
             // 
-            textBox2.Location = new Point(103, 72);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(303, 23);
-            textBox2.TabIndex = 3;
+            txtPass.Location = new Point(103, 72);
+            txtPass.Name = "txtPass";
+            txtPass.Size = new Size(303, 23);
+            txtPass.TabIndex = 3;
             // 
             // label2
             // 
@@ -143,12 +152,12 @@
             label2.TabIndex = 2;
             label2.Text = "Senha";
             // 
-            // textBox1
+            // txtLogin
             // 
-            textBox1.Location = new Point(103, 9);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(303, 23);
-            textBox1.TabIndex = 1;
+            txtLogin.Location = new Point(103, 9);
+            txtLogin.Name = "txtLogin";
+            txtLogin.Size = new Size(303, 23);
+            txtLogin.TabIndex = 1;
             // 
             // label1
             // 
@@ -159,15 +168,6 @@
             label1.Size = new Size(59, 25);
             label1.TabIndex = 0;
             label1.Text = "Login";
-            // 
-            // btnDef
-            // 
-            btnDef.Location = new Point(16, 566);
-            btnDef.Name = "btnDef";
-            btnDef.Size = new Size(100, 39);
-            btnDef.TabIndex = 7;
-            btnDef.Text = "Definições";
-            btnDef.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -190,9 +190,9 @@
         #endregion
 
         private SplitContainer splitContainer1;
-        private TextBox textBox2;
+        private TextBox txtPass;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox txtLogin;
         private Label label1;
         private Button btnClients;
         private Panel panelLogin;

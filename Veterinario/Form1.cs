@@ -10,20 +10,27 @@ namespace Veterinario
 
         private void button7_Click(object sender, EventArgs e)
         {
-            string cargo;
+            bool loginSuccessful = false;
 
-            if (textBox1.Text == "gui@123")
+            if (txtLogin.Text == FuncionarioID && txtPass.Text == Pass)
             {
-                cargo = "Rececionista";
+                MessageBox.Show("Login bem-sucedido!");
+                loginSuccessful = true;
             }
             else
             {
-                cargo = "Veterinario";
+                MessageBox.Show("Login ou senha incorretos. Tente novamente.");
+                txtLogin.Clear();
+                txtPass.Clear();
+                loginSuccessful = false;
             }
 
-            if (cargo == "Rececionista")
+            if (loginSuccessful)
             {
-                btnHistoric.Visible = false;
+                if (Funcao == "Rececionista")
+                {
+                    btnHistoric.Visible = false;
+                }
             }
 
             panelBtn.Visible = true;
