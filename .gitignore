@@ -3,6 +3,25 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Pastas de compilação (lixo que o VS gera)
+[Bb]in/
+[Oo]bj/
+
+# Ficheiros de utilizador do Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ficheiros de base de dados locais (se usasses SQLite ou SQL Express local)
+*.db
+*.mdf
+*.ldf
+
+# O TEU FICHEIRO DE CONFIGURAÇÃO (Se quiseres que cada colega tenha o seu)
+App.config.gitignore
+
 # User-specific files
 *.rsuser
 *.suo
