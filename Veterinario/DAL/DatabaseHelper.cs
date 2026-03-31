@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Veterinario.Classes
+namespace Veterinario.DAL
 {
     internal class DatabaseHelper
     {
@@ -40,17 +40,29 @@ namespace Veterinario.Classes
             try
             {
                 using (var conn = GetConnection())
-                using (var cmd = new SqlCommand(sql, conn))
                 {
-                    if (parameters != null) cmd.Parameters.AddRange(parameters);
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    using (var cmd = new SqlCommand(sql, conn))
                     {
-                        adapter.Fill(dt);
+                        if (parameters != null)
+                        { 
+                            cmd.Parameters.AddRange(parameters); 
+                        }
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dt);
+                        }
                     }
                 }
             }
-            catch (Exception ex) { /* Log erro */ }
+            catch (Exception ex) 
+            { 
+                System.Windows.Forms.MessageBox.Show("Erro na consulta: " + ex.Message); 
+            }
             return dt;
         }
     }
 }
+
+
+
