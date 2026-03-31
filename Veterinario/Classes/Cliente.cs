@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Veterinario.Classes
 {
-    internal class Cliente
+    public class Cliente
     {
         public string Nome { get; set; }
 
@@ -20,7 +20,7 @@ namespace Veterinario.Classes
 
         public string Morada { get; set; }
 
-        public Cliente(string nome, int nif, string telefone, string email, string morada)
+        public Cliente(string nome, int nif,string telefone, string email, string morada)
         {
             Nome = nome;
             NIF = nif;
@@ -29,20 +29,20 @@ namespace Veterinario.Classes
             Morada = morada;
         }
 
-        public string GetTelefone()
+        public static string GetTelefone(string telefone)
         {
-            if (Telefone.Length == 9 && Telefone.All(char.IsDigit))
-                return Telefone;
+            if (telefone.Length == 9 && telefone.All(char.IsDigit))
+                return telefone;
             else
-                return "Número de telefone inválido";
+                return null;
         }
 
-        public string GetEmail()
+        public static string GetEmail(string email)
         {
-            if (Regex.IsMatch(Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-                return Email.ToLower();
+            if (Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+                return email.ToLower();
             else
-                return "Endereço de email inválido";
+                return null;
         }
     }
 }
