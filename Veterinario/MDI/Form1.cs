@@ -79,6 +79,8 @@ namespace Veterinario
                 textBox4.Clear();
                 textBox5.Clear();
 
+
+
                 plCliente.Visible = false;
                 plAnimal.Visible = true;
             }
@@ -89,15 +91,22 @@ namespace Veterinario
         {
             if (string.IsNullOrWhiteSpace(textBox6.Text) || string.IsNullOrWhiteSpace(textBox7.Text) ||
                 string.IsNullOrWhiteSpace(textBox8.Text) || string.IsNullOrWhiteSpace(textBox9.Text) ||
-                string.IsNullOrWhiteSpace(textBox10.Text))
+                string.IsNullOrWhiteSpace(textBox10.Text) || string.IsNullOrWhiteSpace(textBox11.Text))
             {
                 MessageBox.Show("Por favor, preencha todos os campos.");
-                return;
             }
-
-            Animal novoAnimal = new Animal(textBox6.Text, textBox7.Text, textBox8.Text, int.Parse(textBox9.Text), int.Parse(textBox10.Text), int.Parse(textBox11.Text));
-            MessageBox.Show($"Novo Animal registrado");
-
+            else
+            {
+                Animal novoAnimal = new Animal(textBox6.Text, textBox7.Text, textBox8.Text, int.Parse(textBox9.Text), int.Parse(textBox10.Text), int.Parse(textBox11.Text));
+                MessageBox.Show($"Novo Animal registrado");
+                textBox6.Clear();
+                textBox7.Clear();
+                textBox8.Clear();
+                textBox9.Clear();
+                textBox10.Clear();
+                textBox11.Clear();
+                
+            }
         }
     }
 }

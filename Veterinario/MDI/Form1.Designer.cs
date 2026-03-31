@@ -79,6 +79,8 @@
             label2 = new Label();
             txtLogin = new TextBox();
             label1 = new Label();
+            textBox12 = new TextBox();
+            label14 = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -104,7 +106,6 @@
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(plAnimal);
             splitContainer1.Panel2.Controls.Add(plCliente);
             splitContainer1.Panel2.Controls.Add(txtSeta);
             splitContainer1.Panel2.Controls.Add(txtDef);
@@ -177,9 +178,9 @@
             plAnimal.Controls.Add(label10);
             plAnimal.Controls.Add(label9);
             plAnimal.Controls.Add(label8);
-            plAnimal.Location = new Point(3, 270);
+            plAnimal.Location = new Point(0, 3);
             plAnimal.Name = "plAnimal";
-            plAnimal.Size = new Size(1011, 463);
+            plAnimal.Size = new Size(1000, 463);
             plAnimal.TabIndex = 1;
             plAnimal.Paint += plAnimal_Paint;
             // 
@@ -301,6 +302,9 @@
             // 
             // plCliente
             // 
+            plCliente.Controls.Add(label14);
+            plCliente.Controls.Add(textBox12);
+            plCliente.Controls.Add(plAnimal);
             plCliente.Controls.Add(dataGridView1);
             plCliente.Controls.Add(textBox5);
             plCliente.Controls.Add(textBox4);
@@ -458,7 +462,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(800, 139);
+            button2.Location = new Point(695, 567);
             button2.Name = "button2";
             button2.Size = new Size(80, 30);
             button2.TabIndex = 1;
@@ -467,7 +471,8 @@
             // 
             // button1
             // 
-            button1.Location = new Point(800, 70);
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(795, 123);
             button1.Name = "button1";
             button1.Size = new Size(80, 30);
             button1.TabIndex = 0;
@@ -555,6 +560,23 @@
             label1.TabIndex = 0;
             label1.Text = "Login";
             // 
+            // textBox12
+            // 
+            textBox12.Location = new Point(329, 572);
+            textBox12.Name = "textBox12";
+            textBox12.Size = new Size(360, 23);
+            textBox12.TabIndex = 13;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.Location = new Point(292, 572);
+            label14.Name = "label14";
+            label14.Size = new Size(31, 21);
+            label14.TabIndex = 14;
+            label14.Text = "Nif";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -634,5 +656,7 @@
         private TextBox textBox7;
         private TextBox textBox6;
         private Label Animal;
+        private Label label14;
+        private TextBox textBox12;
     }
 }
