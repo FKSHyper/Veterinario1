@@ -99,6 +99,7 @@
             btnHistoric.TabIndex = 2;
             btnHistoric.Text = "Historico";
             btnHistoric.UseVisualStyleBackColor = true;
+            btnHistoric.Click += btnHistoric_Click;
             // 
             // btnCons
             // 

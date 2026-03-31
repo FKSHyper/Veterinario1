@@ -1,3 +1,5 @@
+using Veterinario.MDI;
+
 namespace Veterinario
 {
     public partial class Form1 : Form
@@ -12,7 +14,7 @@ namespace Veterinario
         {
             bool loginSuccessful = false;
 
-            if (txtLogin.Text == FuncionarioID && txtPass.Text == Pass)
+            /*if (txtLogin.Text == FuncionarioID && txtPass.Text == Pass)
             {
                 MessageBox.Show("Login bem-sucedido!");
                 loginSuccessful = true;
@@ -31,7 +33,7 @@ namespace Veterinario
                 {
                     btnHistoric.Visible = false;
                 }
-            }
+            }*/
 
             panelBtn.Visible = true;
 
@@ -42,6 +44,12 @@ namespace Veterinario
         {
             txtDef.Visible = true;
             txtSeta.Visible = true;
+        }
+
+        private void btnHistoric_Click(object sender, EventArgs e)
+        {
+            Historico historicoForm = new Historico();
+            historicoForm.ShowDialog();
         }
     }
 }
