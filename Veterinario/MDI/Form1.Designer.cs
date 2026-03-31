@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
+            btnLogout = new Button();
             btnDef = new Button();
             panelBtn = new Panel();
             btnHistoric = new Button();
             btnCons = new Button();
             btnClients = new Button();
+            plCliente = new Panel();
+            label14 = new Label();
+            textBox12 = new TextBox();
             plAnimal = new Panel();
             Animal = new Label();
             button3 = new Button();
@@ -49,7 +53,6 @@
             label10 = new Label();
             label9 = new Label();
             label8 = new Label();
-            plCliente = new Panel();
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -79,16 +82,13 @@
             label2 = new Label();
             txtLogin = new TextBox();
             label1 = new Label();
-            textBox12 = new TextBox();
-            label14 = new Label();
-            btnLogout = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             panelBtn.SuspendLayout();
-            plAnimal.SuspendLayout();
             plCliente.SuspendLayout();
+            plAnimal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panelLogin.SuspendLayout();
             SuspendLayout();
@@ -115,6 +115,17 @@
             splitContainer1.Size = new Size(1146, 643);
             splitContainer1.SplitterDistance = 136;
             splitContainer1.TabIndex = 0;
+            // 
+            // btnLogout
+            // 
+            btnLogout.BackColor = Color.Red;
+            btnLogout.Location = new Point(15, 521);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(100, 39);
+            btnLogout.TabIndex = 8;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnDef
             // 
@@ -154,6 +165,7 @@
             btnCons.TabIndex = 1;
             btnCons.Text = "Consultas";
             btnCons.UseVisualStyleBackColor = true;
+            btnCons.Click += btnCons_Click;
             // 
             // btnClients
             // 
@@ -164,6 +176,46 @@
             btnClients.Text = "Clientes";
             btnClients.UseVisualStyleBackColor = true;
             btnClients.Click += btnClients_Click;
+            // 
+            // plCliente
+            // 
+            plCliente.Controls.Add(label14);
+            plCliente.Controls.Add(textBox12);
+            plCliente.Controls.Add(plAnimal);
+            plCliente.Controls.Add(dataGridView1);
+            plCliente.Controls.Add(textBox5);
+            plCliente.Controls.Add(textBox4);
+            plCliente.Controls.Add(textBox3);
+            plCliente.Controls.Add(textBox2);
+            plCliente.Controls.Add(textBox1);
+            plCliente.Controls.Add(label7);
+            plCliente.Controls.Add(label6);
+            plCliente.Controls.Add(label5);
+            plCliente.Controls.Add(label4);
+            plCliente.Controls.Add(label3);
+            plCliente.Controls.Add(button2);
+            plCliente.Controls.Add(button1);
+            plCliente.Location = new Point(3, 3);
+            plCliente.Name = "plCliente";
+            plCliente.Size = new Size(1003, 637);
+            plCliente.TabIndex = 1;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.Location = new Point(292, 572);
+            label14.Name = "label14";
+            label14.Size = new Size(31, 21);
+            label14.TabIndex = 14;
+            label14.Text = "Nif";
+            // 
+            // textBox12
+            // 
+            textBox12.Location = new Point(329, 572);
+            textBox12.Name = "textBox12";
+            textBox12.Size = new Size(360, 23);
+            textBox12.TabIndex = 13;
             // 
             // plAnimal
             // 
@@ -302,29 +354,6 @@
             label8.Size = new Size(40, 15);
             label8.TabIndex = 3;
             label8.Text = "Nome";
-            // 
-            // plCliente
-            // 
-            plCliente.Controls.Add(label14);
-            plCliente.Controls.Add(textBox12);
-            plCliente.Controls.Add(plAnimal);
-            plCliente.Controls.Add(dataGridView1);
-            plCliente.Controls.Add(textBox5);
-            plCliente.Controls.Add(textBox4);
-            plCliente.Controls.Add(textBox3);
-            plCliente.Controls.Add(textBox2);
-            plCliente.Controls.Add(textBox1);
-            plCliente.Controls.Add(label7);
-            plCliente.Controls.Add(label6);
-            plCliente.Controls.Add(label5);
-            plCliente.Controls.Add(label4);
-            plCliente.Controls.Add(label3);
-            plCliente.Controls.Add(button2);
-            plCliente.Controls.Add(button1);
-            plCliente.Location = new Point(3, 3);
-            plCliente.Name = "plCliente";
-            plCliente.Size = new Size(1003, 637);
-            plCliente.TabIndex = 1;
             // 
             // dataGridView1
             // 
@@ -563,34 +592,6 @@
             label1.TabIndex = 0;
             label1.Text = "Login";
             // 
-            // textBox12
-            // 
-            textBox12.Location = new Point(329, 572);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(360, 23);
-            textBox12.TabIndex = 13;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label14.Location = new Point(292, 572);
-            label14.Name = "label14";
-            label14.Size = new Size(31, 21);
-            label14.TabIndex = 14;
-            label14.Text = "Nif";
-            //
-            // btnLogout
-            // 
-            btnLogout.BackColor = Color.Red;
-            btnLogout.Location = new Point(15, 521);
-            btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(100, 39);
-            btnLogout.TabIndex = 8;
-            btnLogout.Text = "Logout";
-            btnLogout.UseVisualStyleBackColor = false;
-            btnLogout.Click += btnLogout_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -605,10 +606,10 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             panelBtn.ResumeLayout(false);
-            plAnimal.ResumeLayout(false);
-            plAnimal.PerformLayout();
             plCliente.ResumeLayout(false);
             plCliente.PerformLayout();
+            plAnimal.ResumeLayout(false);
+            plAnimal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panelLogin.ResumeLayout(false);
             panelLogin.PerformLayout();

@@ -66,7 +66,7 @@ namespace Veterinario
             }
             else if (txtLogin.Text == null || txtPass.Text == null)
             {
-                MessageBox.Show("Deve entrar com suas credenciais!");               
+                MessageBox.Show("Deve entrar com suas credenciais!");
             }
             else
             {
@@ -87,13 +87,14 @@ namespace Veterinario
                 if (funcaoLog == "Rececionista")
                 {
                     btnHistoric.Visible = false;
-                } else
+                }
+                else
                 {
                     btnHistoric.Visible = true;
                 }
-            panelBtn.Visible = true;
+                panelBtn.Visible = true;
 
-            panelLogin.Visible = false;
+                panelLogin.Visible = false;
 
             }
         }
@@ -108,6 +109,7 @@ namespace Veterinario
         {
             Historico historicoForm = new Historico();
             historicoForm.ShowDialog();
+        }
 
         private void plAnimal_Paint(object sender, PaintEventArgs e)
         {
@@ -130,7 +132,8 @@ namespace Veterinario
             else if (Cliente.GetTelefone(textBox3.Text) == null || Cliente.GetEmail(textBox4.Text) == null)
             {
                 MessageBox.Show("Por favor, preencha todos os campos.");
-            }else
+            }
+            else
             {
                 Cliente novoCliente = new Cliente(textBox1.Text, int.Parse(textBox2.Text), textBox3.Text, textBox4.Text, textBox5.Text);
                 MessageBox.Show($"Novo Cliente registrado");
@@ -164,8 +167,9 @@ namespace Veterinario
                 textBox9.Clear();
                 textBox10.Clear();
                 textBox11.Clear();
-                
+
             }
+        }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -177,6 +181,13 @@ namespace Veterinario
             MessageBox.Show("Logout efetuado com sucesso!");
 
             btnLogout.Visible = false;
+        }
+
+        private void btnCons_Click(object sender, EventArgs e)
+        {
+            FormConsulta consulta = new FormConsulta();
+
+            consulta.ShowDialog();
         }
     }
 }
