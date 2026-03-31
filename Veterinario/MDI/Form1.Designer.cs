@@ -42,6 +42,7 @@
             label2 = new Label();
             txtLogin = new TextBox();
             label1 = new Label();
+            btnLogout = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -59,6 +60,7 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = SystemColors.ActiveCaption;
+            splitContainer1.Panel1.Controls.Add(btnLogout);
             splitContainer1.Panel1.Controls.Add(btnDef);
             splitContainer1.Panel1.Controls.Add(panelBtn);
             // 
@@ -198,6 +200,17 @@
             label1.TabIndex = 0;
             label1.Text = "Login";
             // 
+            // btnLogout
+            // 
+            btnLogout.BackColor = Color.Red;
+            btnLogout.Location = new Point(15, 521);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(100, 39);
+            btnLogout.TabIndex = 8;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -235,5 +248,6 @@
         private Button btnDef;
         private Label txtDef;
         private Label txtSeta;
+        private Button btnLogout;
     }
 }
