@@ -81,6 +81,7 @@
             label1 = new Label();
             textBox12 = new TextBox();
             label14 = new Label();
+            btnLogout = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -101,6 +102,7 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = SystemColors.ActiveCaption;
+            splitContainer1.Panel1.Controls.Add(btnLogout);
             splitContainer1.Panel1.Controls.Add(btnDef);
             splitContainer1.Panel1.Controls.Add(panelBtn);
             // 
@@ -576,6 +578,17 @@
             label14.Size = new Size(31, 21);
             label14.TabIndex = 14;
             label14.Text = "Nif";
+            //
+            // btnLogout
+            // 
+            btnLogout.BackColor = Color.Red;
+            btnLogout.Location = new Point(15, 521);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(100, 39);
+            btnLogout.TabIndex = 8;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // Form1
             // 
@@ -658,5 +671,6 @@
         private Label Animal;
         private Label label14;
         private TextBox textBox12;
+        private Button btnLogout;
     }
 }
