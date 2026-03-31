@@ -20,7 +20,7 @@
 *.ldf
 
 # O TEU FICHEIRO DE CONFIGURAÇÃO (Se quiseres que cada colega tenha o seu)
-App.config.gitignore
+App.config
 
 # User-specific files
 *.rsuser
