@@ -11,7 +11,7 @@ namespace Veterinario.DAL
 {
     internal class DatabaseHelper
     {
-        private static string connectionString = ConfigurationManager.AppSettings["VetConnection"];
+        private static string connectionString = ConfigurationManager.AppSettings["ConnectionString"];
 
         public static SqlConnection GetConnection()
         {

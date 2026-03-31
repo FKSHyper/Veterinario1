@@ -1,3 +1,4 @@
+using Veterinario.MDI;
 using Veterinario.Classes;
 namespace Veterinario
 {
@@ -90,6 +91,10 @@ namespace Veterinario
                 {
                     btnHistoric.Visible = true;
                 }
+            panelBtn.Visible = true;
+
+            panelLogin.Visible = false;
+
             }
         }
 
@@ -98,6 +103,11 @@ namespace Veterinario
             txtDef.Visible = true;
             txtSeta.Visible = true;
         }
+
+        private void btnHistoric_Click(object sender, EventArgs e)
+        {
+            Historico historicoForm = new Historico();
+            historicoForm.ShowDialog();
 
         private void plAnimal_Paint(object sender, PaintEventArgs e)
         {
