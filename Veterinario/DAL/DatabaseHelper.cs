@@ -31,7 +31,11 @@ namespace Veterinario.DAL
                     return cmd.ExecuteNonQuery();
                 }
             }
-            catch (Exception ex) { return -1; }
+            catch (Exception ex) 
+            {
+                System.Windows.Forms.MessageBox.Show("Erro SQL Real: " + ex.Message);
+                return -1; 
+            }
         }
 
         public static DataTable ExecuteQuery(string sql, SqlParameter[] parameters = null)

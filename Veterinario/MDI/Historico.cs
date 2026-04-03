@@ -19,7 +19,7 @@ namespace Veterinario.MDI
             InitializeComponent();
         }
 
-        private void PreencherListaAnimais()
+        public void PreencherListaAnimais()
         {
             // 1. Query para buscar o ID e o Nome (para o utilizador saber quem é quem)
             string sql = "SELECT AnimalID, Nome FROM Animal ORDER BY Nome ASC";

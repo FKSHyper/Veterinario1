@@ -8,6 +8,7 @@ namespace Veterinario.Classes
 {
     internal class Animal
     {
+        public int AnimalID { get; set; }
         public string Nome { get; set; }
         public int Idade { get; set; }
         public float Peso { get; set; }
@@ -17,8 +18,9 @@ namespace Veterinario.Classes
         private string Raca;
 
         private int Chip;
+        public int ClienteID { get; set; }
 
-        public Animal(string nome, string especie, string raca, int idade, float peso, int chip)
+        public Animal(string nome, string especie, string raca, int idade, float peso, int chip, int clienteID)
         {
             Nome = nome;
             Especie = especie;
@@ -26,6 +28,8 @@ namespace Veterinario.Classes
             Idade = idade;
             Peso = peso;
             Chip = chip;
+            ClienteID = clienteID;
+
         }
 
 
