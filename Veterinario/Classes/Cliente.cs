@@ -10,6 +10,7 @@ namespace Veterinario.Classes
 {
     public class Cliente
     {
+        public int ClienteID { get; set; }
         public string Nome { get; set; }
 
         private int NIF;

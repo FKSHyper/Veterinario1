@@ -1,5 +1,9 @@
-using Veterinario.MDI;
+﻿using Microsoft.Data.SqlClient;
+using System.Data;
 using Veterinario.Classes;
+using Veterinario.DAL;
+using Veterinario.MDI;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 namespace Veterinario
 {
     public partial class Form1 : Form
@@ -11,8 +15,13 @@ namespace Veterinario
             plCliente.Visible = false;
             plAnimal.Visible = false;
             btnLogout.Visible = false;
+            AtualizarGrelha();
 
         }
+
+        private int idDonoAtual;
+
+        private string nomeDonoAtual;
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -66,7 +75,7 @@ namespace Veterinario
             }
             else if (txtLogin.Text == null || txtPass.Text == null)
             {
-                MessageBox.Show("Deve entrar com suas credenciais!");               
+                MessageBox.Show("Deve entrar com suas credenciais!");
             }
             else
             {
@@ -87,13 +96,14 @@ namespace Veterinario
                 if (funcaoLog == "Rececionista")
                 {
                     btnHistoric.Visible = false;
-                } else
+                }
+                else
                 {
                     btnHistoric.Visible = true;
                 }
-            panelBtn.Visible = true;
+                panelBtn.Visible = true;
 
-            panelLogin.Visible = false;
+                panelLogin.Visible = false;
 
             }
         }
@@ -108,6 +118,7 @@ namespace Veterinario
         {
             Historico historicoForm = new Historico();
             historicoForm.ShowDialog();
+        }
 
         private void plAnimal_Paint(object sender, PaintEventArgs e)
         {
@@ -130,18 +141,51 @@ namespace Veterinario
             else if (Cliente.GetTelefone(textBox3.Text) == null || Cliente.GetEmail(textBox4.Text) == null)
             {
                 MessageBox.Show("Por favor, preencha todos os campos.");
-            }else
+            }
+            else if (!int.TryParse(textBox2.Text, out int nif))
             {
-                Cliente novoCliente = new Cliente(textBox1.Text, int.Parse(textBox2.Text), textBox3.Text, textBox4.Text, textBox5.Text);
-                MessageBox.Show($"Novo Cliente registrado");
-                textBox1.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
-                textBox4.Clear();
-                textBox5.Clear();
+                MessageBox.Show("O NIF deve ser um número válido.");
+                return;
+            }
+            else if (!int.TryParse(textBox3.Text, out int telefone))
+            {
+                MessageBox.Show("O telefone deve ser um número válido.");
+                return;
+            }
+            else
+            {
+                // 1. Criamos o comando SQL (ID não entra, pois é IDENTITY)
+                string sql = "INSERT INTO Cliente (Nome, Nif, Telefone, Email, Morada) VALUES (@nome, @nif, @tel, @email, @morada); SELECT SCOPE_IDENTITY(); ";
 
-                plCliente.Visible = false;
-                plAnimal.Visible = true;
+                // 2. Criamos os parâmetros para segurança
+                SqlParameter[] ps = {
+                    new SqlParameter("@nome", textBox1.Text),
+                    new SqlParameter("@nif", nif),
+                    new SqlParameter("@tel", telefone),
+                    new SqlParameter("@email", textBox4.Text),
+                    new SqlParameter("@morada", textBox5.Text)
+             };
+
+                DataTable dt = DatabaseHelper.ExecuteQuery(sql, ps);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    // Guardamos o ID para usar no botão do Animal depois
+                    idDonoAtual = Convert.ToInt32(dt.Rows[0][0]);
+                    nomeDonoAtual = textBox1.Text;
+                    textBox13.Text = nomeDonoAtual;
+
+                    MessageBox.Show("Cliente registado com sucesso! ID: " + idDonoAtual);
+
+                    // Limpar campos e trocar painel
+                    textBox1.Clear(); textBox2.Clear(); textBox3.Clear(); textBox4.Clear(); textBox5.Clear();
+                    plCliente.Visible = false;
+                    plAnimal.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao gravar no banco de dados.");
+                }
             }
 
         }
@@ -156,16 +200,26 @@ namespace Veterinario
             }
             else
             {
-                Animal novoAnimal = new Animal(textBox6.Text, textBox7.Text, textBox8.Text, int.Parse(textBox9.Text), int.Parse(textBox10.Text), int.Parse(textBox11.Text));
-                MessageBox.Show($"Novo Animal registrado");
-                textBox6.Clear();
-                textBox7.Clear();
-                textBox8.Clear();
-                textBox9.Clear();
-                textBox10.Clear();
-                textBox11.Clear();
-                
+                string sql = "INSERT INTO Animal (Nome, Especie, Raca, Idade, Peso, Chip, ClienteID) " +
+                 "VALUES (@nome, @esp, @raca, @idade, @peso, @chip, @clienteID)";
+
+                SqlParameter[] ps = {
+                    new SqlParameter("@nome", textBox6.Text),
+                    new SqlParameter("@esp", textBox7.Text),
+                    new SqlParameter("@raca", textBox8.Text),
+                    new SqlParameter("@idade", int.Parse(textBox9.Text)),
+                    new SqlParameter("@peso", float.Parse(textBox10.Text)),
+                    new SqlParameter("@chip", textBox11.Text),
+                    new SqlParameter("@clienteID", idDonoAtual) // <-- O ID que guardamos lá no botão 1!
+                };
+
+                int res = DatabaseHelper.ExecuteCommand(sql, ps);
+                if (res > 0) MessageBox.Show("Animal associado ao dono com sucesso!");
+                AtualizarGrelha();
+                textBox6.Clear(); textBox7.Clear(); textBox8.Clear(); textBox9.Clear(); textBox10.Clear(); textBox11.Clear();
+
             }
+        }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -177,6 +231,31 @@ namespace Veterinario
             MessageBox.Show("Logout efetuado com sucesso!");
 
             btnLogout.Visible = false;
+            plCliente.Visible = false;
+            plAnimal.Visible = false;
+            panelBtn.Visible = true;
+
+        }
+
+        private void AtualizarGrelha()
+        {
+            string sql = @"SELECT c.Nome, c.Nif, c.Telefone, c.Email, c.Morada, 
+                          a.Nome as Animal, a.Especie, a.Chip
+                   FROM Cliente c
+                   LEFT JOIN Animal a ON c.ClienteID = a.ClienteID";
+
+            DataTable dt = DatabaseHelper.ExecuteQuery(sql);
+
+            if (dt != null)
+            {
+                dataGridView1.DataSource = dt;
+            }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            string nifAlvo = textBox12.Text;
+            string query = "SELECT * FROM Clientes WHERE Nif = @nif";
         }
     }
 }
