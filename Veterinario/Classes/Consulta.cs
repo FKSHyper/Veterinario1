@@ -12,17 +12,20 @@ namespace Veterinario.Classes
 {
     internal class Consulta
     {
+        public int ConsultaID { get; set; }
+        public int AnimalID { get; set; }
         public DateTime Data { get; set; }
         public string Motivo { get; set; }
 
-        private Animal animal;
-        private Cliente cliente;
-        public Consulta(DateTime data, string motivo, Animal animal, Cliente cliente)
+        //private Animal animal;
+        //private Cliente cliente;
+        public Consulta(DateTime data, string motivo, int animalID)
         {
             Data = data;
             Motivo = motivo;
-            this.animal = animal;
-            this.cliente = cliente;
+            //this.animal = animal;
+            //this.cliente = cliente;
+            AnimalID = animalID;
         }
 
         // Função para obter um dado específico de uma consulta
