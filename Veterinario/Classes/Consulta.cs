@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Veterinario.Classes;
+using Veterinario.DAL;
 
 namespace Veterinario.Classes
 {
@@ -22,6 +26,21 @@ namespace Veterinario.Classes
             //this.animal = animal;
             //this.cliente = cliente;
             AnimalID = animalID;
+        }
+
+        // Função para obter um dado específico de uma consulta
+        public string GetDetalhesConsulta(int idConsulta)
+        {
+            string sql = "SELECT Observacoes FROM Consulta WHERE ConsultaID = @id";
+            SqlParameter[] p = { new SqlParameter("@id", idConsulta) };
+
+            DataTable dt = DatabaseHelper.ExecuteQuery(sql, p);
+
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["Observacoes"].ToString();
+            }
+            return "Nenhuma observação encontrada.";
         }
     }
 }

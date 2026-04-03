@@ -217,7 +217,6 @@ namespace Veterinario
                 if (res > 0) MessageBox.Show("Animal associado ao dono com sucesso!");
                 AtualizarGrelha();
                 textBox6.Clear(); textBox7.Clear(); textBox8.Clear(); textBox9.Clear(); textBox10.Clear(); textBox11.Clear();
-
             }
         }
 
@@ -256,6 +255,13 @@ namespace Veterinario
         {
             string nifAlvo = textBox12.Text;
             string query = "SELECT * FROM Clientes WHERE Nif = @nif";
+        }
+
+        private void btnCons_Click(object sender, EventArgs e)
+        {
+            FormConsulta consulta = new FormConsulta();
+
+            consulta.ShowDialog();
         }
     }
 }
