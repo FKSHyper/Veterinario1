@@ -14,6 +14,7 @@ namespace Veterinario
             plCliente.Visible = false;
             plAnimal.Visible = false;
             btnLogout.Visible = false;
+            //splitContainer1.Panel2.BringToFront();
             AtualizarGrelha();
 
         }
@@ -119,11 +120,13 @@ namespace Veterinario
 
         private void plAnimal_Paint(object sender, PaintEventArgs e)
         {
+            plAnimal.BringToFront();
             plAnimal.Visible = true;
         }
 
         private void btnClients_Click(object sender, EventArgs e)
         {
+            plCliente.BringToFront();
             plCliente.Visible = true;
         }
 

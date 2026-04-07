@@ -85,6 +85,7 @@
             // 
             btnSalvar.BackColor = Color.FromArgb(192, 255, 192);
             btnSalvar.FlatAppearance.BorderColor = Color.FromArgb(192, 255, 192);
+            btnSalvar.FlatStyle = FlatStyle.Flat;
             btnSalvar.Location = new Point(501, 252);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(115, 49);
