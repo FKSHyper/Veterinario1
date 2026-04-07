@@ -43,7 +43,6 @@ namespace Veterinario
             {
                 if (txtPass.Text == passFunc1)
                 {
-                    MessageBox.Show("Login bem-sucedido!");
                     funcaoLog = Funcao;
                     idLog = txtLogin.Text;
                     loginSuccessful = true;
@@ -60,7 +59,6 @@ namespace Veterinario
             {
                 if (txtPass.Text == passFunc2)
                 {
-                    MessageBox.Show("Login bem-sucedido!");
                     funcaoLog = Funcao2;
                     idLog = txtLogin.Text;
                     loginSuccessful = true;
@@ -117,7 +115,7 @@ namespace Veterinario
         private void btnHistoric_Click(object sender, EventArgs e)
         {
             Historico historicoForm = new Historico();
-            historicoForm.ShowDialog();
+            historicoForm.ShowDialog(); 
         }
 
         private void plAnimal_Paint(object sender, PaintEventArgs e)
@@ -222,17 +220,9 @@ namespace Veterinario
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            panelBtn.Visible = false;
-            panelLogin.Visible = true;
-            txtLogin.Clear();
-            txtPass.Clear();
+            Application.Restart();
 
             MessageBox.Show("Logout efetuado com sucesso!");
-
-            btnLogout.Visible = false;
-            plCliente.Visible = false;
-            plAnimal.Visible = false;
-            panelBtn.Visible = true;
 
         }
 
@@ -254,7 +244,19 @@ namespace Veterinario
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             string nifAlvo = textBox12.Text;
-            string query = "SELECT * FROM Clientes WHERE Nif = @nif";
+            
+            FiltroUsuario filtro = new FiltroUsuario();
+            DataTable dt = filtro.FiltrarDados(nifAlvo);
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                dataGridView1.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show($"Nenhum cliente encontrado com o NIF {textBox12.Text}.");
+                AtualizarGrelha();
+            }
         }
 
         private void btnCons_Click(object sender, EventArgs e)

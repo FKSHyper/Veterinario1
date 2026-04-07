@@ -84,6 +84,30 @@ namespace Veterinario.MDI
             return data >= DateTime.Now;
         }
 
+        private void PreencherListaAnimais()
+        {
+            try
+            {
+                // SQL para buscar os animais
+                string sql = "SELECT AnimalID, Nome FROM Animal ORDER BY Nome ASC";
+
+                // Chamada ao DatabaseHelper (usando o caminho completo para evitar erros)
+                DataTable dt = Veterinario.DAL.DatabaseHelper.ExecuteQuery(sql);
+
+                if (dt != null)
+                {
+                    cbAnimais.DataSource = dt;
+                    cbAnimais.DisplayMember = "Nome";      // O que o utilizador vê
+                    cbAnimais.ValueMember = "AnimalID";    // O ID que guardamos no SQL
+                    cbAnimais.SelectedIndex = -1;          // Começa vazio
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao preencher lista de animais: " + ex.Message);
+            }
+        }
+
         // Função para obter um dado específico de uma consulta
         public string GetDetalhesConsulta(int idConsulta)
         {
@@ -121,9 +145,47 @@ namespace Veterinario.MDI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // 1. Validação básica: verificar se selecionou um animal
+                if (cbAnimais.SelectedValue == null)
+                {
+                    MessageBox.Show("Por favor, selecione um animal da lista!");
+                    return;
+                }
 
+                // 2. Preparar o SQL de Inserção
+                // Nota: Os nomes das colunas devem ser iguais aos da tua tabela no SQL Server
+                string sql = "INSERT INTO Consulta (AnimalID, DataHora, Motivo) VALUES (@animalID, @data, @motivo)";
+
+                // 3. Criar os parâmetros para evitar erros de formato e SQL Injection
+                SqlParameter[] p = {
+            new SqlParameter("@animalID", cbAnimais.SelectedValue),
+            new SqlParameter("@data", dateTimePicker1.Value), // Confirma o nome do teu DateTimePicker
+            new SqlParameter("@motivo", txtMotivo.Text)      // Confirma o nome da tua TextBox
+        };
+
+                // 4. Executar o comando através do teu DatabaseHelper
+                int linhasAfetadas = Veterinario.DAL.DatabaseHelper.ExecuteCommand(sql, p);
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Consulta agendada com sucesso!");
+
+                    // Limpar os campos para a próxima
+                    txtMotivo.Clear();
+                    cbAnimais.SelectedIndex = -1;
+
+                    // Opcional: Mudar para o outro painel para ver a nova consulta na lista
+                    btnVerFuturas_Click(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao salvar consulta: " + ex.Message);
+            }
         }
     }
 }
