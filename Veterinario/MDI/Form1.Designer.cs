@@ -34,6 +34,7 @@
             btnLogout = new Button();
             btnDef = new Button();
             panelBtn = new Panel();
+            btnAddAnimal = new Button();
             btnHistoric = new Button();
             btnCons = new Button();
             btnClients = new Button();
@@ -157,6 +158,7 @@
             // 
             // panelBtn
             // 
+            panelBtn.Controls.Add(btnAddAnimal);
             panelBtn.Controls.Add(btnHistoric);
             panelBtn.Controls.Add(btnCons);
             panelBtn.Controls.Add(btnClients);
@@ -164,6 +166,16 @@
             panelBtn.Name = "panelBtn";
             panelBtn.Size = new Size(107, 189);
             panelBtn.TabIndex = 6;
+            // 
+            // btnAddAnimal
+            // 
+            btnAddAnimal.Location = new Point(1, 71);
+            btnAddAnimal.Name = "btnAddAnimal";
+            btnAddAnimal.Size = new Size(100, 39);
+            btnAddAnimal.TabIndex = 3;
+            btnAddAnimal.Text = "Add Animal";
+            btnAddAnimal.UseVisualStyleBackColor = true;
+            btnAddAnimal.Click += AdicionarAnimal;
             // 
             // btnHistoric
             // 
@@ -177,7 +189,7 @@
             // 
             // btnCons
             // 
-            btnCons.Location = new Point(2, 70);
+            btnCons.Location = new Point(1, 207);
             btnCons.Name = "btnCons";
             btnCons.Size = new Size(100, 39);
             btnCons.TabIndex = 1;
@@ -423,6 +435,30 @@
             button1.Text = "Registo";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // plAnimal
+            // 
+            plAnimal.Controls.Add(textBox13);
+            plAnimal.Controls.Add(label15);
+            plAnimal.Controls.Add(Animal);
+            plAnimal.Controls.Add(button3);
+            plAnimal.Controls.Add(textBox11);
+            plAnimal.Controls.Add(textBox10);
+            plAnimal.Controls.Add(textBox9);
+            plAnimal.Controls.Add(textBox8);
+            plAnimal.Controls.Add(textBox7);
+            plAnimal.Controls.Add(textBox6);
+            plAnimal.Controls.Add(label13);
+            plAnimal.Controls.Add(label12);
+            plAnimal.Controls.Add(label11);
+            plAnimal.Controls.Add(label10);
+            plAnimal.Controls.Add(label9);
+            plAnimal.Controls.Add(label8);
+            plAnimal.Location = new Point(0, 0);
+            plAnimal.Name = "plAnimal";
+            plAnimal.Size = new Size(1000, 463);
+            plAnimal.TabIndex = 1;
+            plAnimal.Paint += plAnimal_Paint;
             // 
             // textBox13
             // 
@@ -682,14 +718,10 @@
         private Label label2;
         private TextBox txtLogin;
         private Label label1;
-        private Button btnClients;
         private Panel panelLogin;
         private Button button4;
         private Button button5;
-        private Button btnHistoric;
-        private Button btnCons;
         private Button button7;
-        private Panel panelBtn;
         private Button btnDef;
         private Label txtDef;
         private Label txtSeta;
@@ -736,5 +768,10 @@
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn Column8;
         private PictureBox pictureBox1;
+        private Panel panelBtn;
+        private Button btnAddAnimal;
+        private Button btnHistoric;
+        private Button btnCons;
+        private Button btnClients;
     }
 }
