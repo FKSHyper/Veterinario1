@@ -3,7 +3,6 @@ using System.Data;
 using Veterinario.Classes;
 using Veterinario.DAL;
 using Veterinario.MDI;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
 namespace Veterinario
 {
     public partial class Form1 : Form
@@ -115,7 +114,7 @@ namespace Veterinario
         private void btnHistoric_Click(object sender, EventArgs e)
         {
             Historico historicoForm = new Historico();
-            historicoForm.ShowDialog(); 
+            historicoForm.ShowDialog();
         }
 
         private void plAnimal_Paint(object sender, PaintEventArgs e)
@@ -244,7 +243,7 @@ namespace Veterinario
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             string nifAlvo = textBox12.Text;
-            
+
             FiltroUsuario filtro = new FiltroUsuario();
             DataTable dt = filtro.FiltrarDados(nifAlvo);
 
