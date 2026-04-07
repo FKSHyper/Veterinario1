@@ -39,6 +39,13 @@
             label14 = new Label();
             textBox12 = new TextBox();
             dataGridView1 = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
+            Column8 = new DataGridViewTextBoxColumn();
             textBox5 = new TextBox();
             textBox4 = new TextBox();
             textBox3 = new TextBox();
@@ -49,7 +56,7 @@
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
-            button2 = new Button();
+            btnPesquisar = new Button();
             button1 = new Button();
             plAnimal = new Panel();
             textBox13 = new TextBox();
@@ -68,27 +75,6 @@
             label10 = new Label();
             label9 = new Label();
             label8 = new Label();
-            dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
-            Column8 = new DataGridViewTextBoxColumn();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            label7 = new Label();
-            label6 = new Label();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            button2 = new Button();
-            button1 = new Button();
             txtSeta = new Label();
             txtDef = new Label();
             panelLogin = new Panel();
@@ -97,20 +83,13 @@
             label2 = new Label();
             txtLogin = new TextBox();
             label1 = new Label();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
-            Column8 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             panelBtn.SuspendLayout();
             plCliente.SuspendLayout();
-            plAnimal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             plAnimal.SuspendLayout();
             panelLogin.SuspendLayout();
@@ -213,7 +192,6 @@
             // 
             plCliente.Controls.Add(label14);
             plCliente.Controls.Add(textBox12);
-            plCliente.Controls.Add(plAnimal);
             plCliente.Controls.Add(dataGridView1);
             plCliente.Controls.Add(textBox5);
             plCliente.Controls.Add(textBox4);
@@ -225,7 +203,7 @@
             plCliente.Controls.Add(label5);
             plCliente.Controls.Add(label4);
             plCliente.Controls.Add(label3);
-            plCliente.Controls.Add(button2);
+            plCliente.Controls.Add(btnPesquisar);
             plCliente.Controls.Add(button1);
             plCliente.Location = new Point(3, 4);
             plCliente.Margin = new Padding(3, 4, 3, 4);
@@ -261,58 +239,107 @@
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column7, Column8 });
-            dataGridView1.Location = new Point(38, 385);
+            dataGridView1.Location = new Point(33, 289);
             dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1055, 351);
+            dataGridView1.Size = new Size(923, 237);
             dataGridView1.TabIndex = 12;
+            // 
+            // Column1
+            // 
+            Column1.DataPropertyName = "Nome";
+            Column1.HeaderText = "Nome";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.DataPropertyName = "Nif";
+            Column2.HeaderText = "Nif";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            Column3.DataPropertyName = "Telefone";
+            Column3.HeaderText = "Telefone";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            Column4.DataPropertyName = "Email";
+            Column4.HeaderText = "Email";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            Column5.DataPropertyName = "Morada";
+            Column5.HeaderText = "Morada";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            // 
+            // Column7
+            // 
+            Column7.DataPropertyName = "Especie";
+            Column7.HeaderText = "Espécie";
+            Column7.MinimumWidth = 6;
+            Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            Column8.DataPropertyName = "Chip";
+            Column8.HeaderText = "Chip";
+            Column8.MinimumWidth = 6;
+            Column8.Name = "Column8";
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(155, 288);
+            textBox5.Location = new Point(136, 216);
             textBox5.Margin = new Padding(3, 4, 3, 4);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(643, 27);
+            textBox5.Size = new Size(563, 27);
             textBox5.TabIndex = 11;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(155, 223);
+            textBox4.Location = new Point(136, 167);
             textBox4.Margin = new Padding(3, 4, 3, 4);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(643, 27);
+            textBox4.Size = new Size(563, 27);
             textBox4.TabIndex = 10;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(155, 164);
+            textBox3.Location = new Point(136, 123);
             textBox3.Margin = new Padding(3, 4, 3, 4);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(643, 27);
+            textBox3.Size = new Size(563, 27);
             textBox3.TabIndex = 9;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(155, 104);
+            textBox2.Location = new Point(136, 78);
             textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(643, 27);
+            textBox2.Size = new Size(563, 27);
             textBox2.TabIndex = 8;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(155, 47);
+            textBox1.Location = new Point(136, 35);
             textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(643, 27);
+            textBox1.Size = new Size(563, 27);
             textBox1.TabIndex = 7;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(94, 299);
+            label7.Location = new Point(82, 224);
             label7.Name = "label7";
             label7.Size = new Size(61, 20);
             label7.TabIndex = 6;
@@ -321,7 +348,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(105, 232);
+            label6.Location = new Point(92, 174);
             label6.Name = "label6";
             label6.Size = new Size(46, 20);
             label6.TabIndex = 5;
@@ -330,7 +357,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(89, 175);
+            label5.Location = new Point(78, 131);
             label5.Name = "label5";
             label5.Size = new Size(66, 20);
             label5.TabIndex = 4;
@@ -339,7 +366,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(105, 115);
+            label4.Location = new Point(92, 86);
             label4.Name = "label4";
             label4.Size = new Size(29, 20);
             label4.TabIndex = 3;
@@ -348,29 +375,29 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(105, 57);
+            label3.Location = new Point(92, 43);
             label3.Name = "label3";
             label3.Size = new Size(50, 20);
             label3.TabIndex = 2;
             label3.Text = "Nome";
             // 
-            // button2
+            // btnPesquisar
             // 
-            button2.Location = new Point(507, 757);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(91, 40);
-            button2.TabIndex = 1;
-            button2.Text = "Pesquisar";
-            button2.UseVisualStyleBackColor = true;
+            btnPesquisar.Location = new Point(695, 567);
+            btnPesquisar.Margin = new Padding(3, 4, 3, 4);
+            btnPesquisar.Name = "btnPesquisar";
+            btnPesquisar.Size = new Size(80, 30);
+            btnPesquisar.TabIndex = 1;
+            btnPesquisar.Text = "Pesquisar";
+            btnPesquisar.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(909, 164);
+            button1.Location = new Point(795, 123);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(91, 40);
+            button1.Size = new Size(80, 30);
             button1.TabIndex = 0;
             button1.Text = "Registo";
             button1.UseVisualStyleBackColor = true;
@@ -786,54 +813,12 @@
             label1.TabIndex = 0;
             label1.Text = "Login";
             // 
-            // Column1
+            // Column6
             // 
-            Column1.DataPropertyName = "Nome";
-            Column1.HeaderText = "Nome";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            Column2.DataPropertyName = "Nif";
-            Column2.HeaderText = "Nif";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            Column3.DataPropertyName = "Telefone";
-            Column3.HeaderText = "Telefone";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            Column4.DataPropertyName = "Email";
-            Column4.HeaderText = "Email";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            Column5.DataPropertyName = "Morada";
-            Column5.HeaderText = "Morada";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
-            // 
-            // Column7
-            // 
-            Column7.DataPropertyName = "Especie";
-            Column7.HeaderText = "Espécie";
-            Column7.MinimumWidth = 6;
-            Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            Column8.DataPropertyName = "Chip";
-            Column8.HeaderText = "Chip";
-            Column8.MinimumWidth = 6;
-            Column8.Name = "Column8";
+            Column6.HeaderText = "Animal";
+            Column6.MinimumWidth = 6;
+            Column6.Name = "Column6";
+            Column6.Width = 110;
             // 
             // Form1
             // 
@@ -853,8 +838,6 @@
             panelBtn.ResumeLayout(false);
             plCliente.ResumeLayout(false);
             plCliente.PerformLayout();
-            plAnimal.ResumeLayout(false);
-            plAnimal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             plAnimal.ResumeLayout(false);
             plAnimal.PerformLayout();
@@ -887,7 +870,7 @@
         private Label label5;
         private Label label4;
         private Label label3;
-        private Button button2;
+        private Button btnPesquisar;
         private Button button1;
         private TextBox textBox5;
         private TextBox textBox4;
