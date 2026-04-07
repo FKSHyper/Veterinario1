@@ -38,7 +38,6 @@
             btnHistoric = new Button();
             btnCons = new Button();
             btnClients = new Button();
-            plAnimal = new Panel();
             plCliente = new Panel();
             label14 = new Label();
             textBox12 = new TextBox();
@@ -62,6 +61,7 @@
             label3 = new Label();
             btnPesquisar = new Button();
             button1 = new Button();
+            plAnimal = new Panel();
             textBox13 = new TextBox();
             label15 = new Label();
             Animal = new Label();
@@ -93,9 +93,9 @@
             splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelBtn.SuspendLayout();
-            plAnimal.SuspendLayout();
             plCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            plAnimal.SuspendLayout();
             panelLogin.SuspendLayout();
             SuspendLayout();
             // 
@@ -164,7 +164,7 @@
             panelBtn.Controls.Add(btnClients);
             panelBtn.Location = new Point(12, 122);
             panelBtn.Name = "panelBtn";
-            panelBtn.Size = new Size(107, 189);
+            panelBtn.Size = new Size(107, 273);
             panelBtn.TabIndex = 6;
             // 
             // btnAddAnimal
@@ -206,30 +206,6 @@
             btnClients.Text = "Clientes";
             btnClients.UseVisualStyleBackColor = true;
             btnClients.Click += btnClients_Click;
-            // 
-            // plAnimal
-            // 
-            plAnimal.Controls.Add(textBox13);
-            plAnimal.Controls.Add(label15);
-            plAnimal.Controls.Add(Animal);
-            plAnimal.Controls.Add(button3);
-            plAnimal.Controls.Add(textBox11);
-            plAnimal.Controls.Add(textBox10);
-            plAnimal.Controls.Add(textBox9);
-            plAnimal.Controls.Add(textBox8);
-            plAnimal.Controls.Add(textBox7);
-            plAnimal.Controls.Add(textBox6);
-            plAnimal.Controls.Add(label13);
-            plAnimal.Controls.Add(label12);
-            plAnimal.Controls.Add(label11);
-            plAnimal.Controls.Add(label10);
-            plAnimal.Controls.Add(label9);
-            plAnimal.Controls.Add(label8);
-            plAnimal.Location = new Point(3, 3);
-            plAnimal.Name = "plAnimal";
-            plAnimal.Size = new Size(1000, 463);
-            plAnimal.TabIndex = 1;
-            plAnimal.Paint += plAnimal_Paint;
             // 
             // plCliente
             // 
@@ -394,7 +370,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(41, 95);
             label5.Name = "label5";
-            label5.Size = new Size(52, 15);
+            label5.Size = new Size(51, 15);
             label5.TabIndex = 4;
             label5.Text = "Telefone";
             // 
@@ -701,11 +677,11 @@
             splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panelBtn.ResumeLayout(false);
-            plAnimal.ResumeLayout(false);
-            plAnimal.PerformLayout();
             plCliente.ResumeLayout(false);
             plCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            plAnimal.ResumeLayout(false);
+            plAnimal.PerformLayout();
             panelLogin.ResumeLayout(false);
             panelLogin.PerformLayout();
             ResumeLayout(false);
