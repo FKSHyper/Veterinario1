@@ -1,13 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Veterinario.DAL;
 
 namespace Veterinario.MDI
@@ -42,8 +34,11 @@ namespace Veterinario.MDI
 
         private void CarregarHistorico(int idDoAnimal)
         {
-            // 1. Definir o SQL (Relacional: filtrando pelo ID do animal)
-            string sql = "SELECT DataHora, Motivo, Observacoes FROM Consulta WHERE AnimalID = @id ORDER BY DataHora DESC";
+            // Seleciona apenas consultas com data anterior a "agora"
+            string sql = @"SELECT DataHora AS [Data], Motivo, Observacoes 
+                   FROM Consulta 
+                   WHERE AnimalID = @id AND DataHora < GETDATE() 
+                   ORDER BY DataHora DESC";
 
             // 2. Criar o parâmetro
             SqlParameter[] p =
@@ -58,7 +53,7 @@ namespace Veterinario.MDI
             dgvHistorico.DataSource = dt;
 
             // Dica: Formatar a coluna da Data para ficar legível em PT-PT
-            dgvHistorico.Columns["DataHora"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+            dgvHistorico.Columns["Data"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
