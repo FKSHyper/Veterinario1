@@ -569,6 +569,162 @@
             label8.TabIndex = 3;
             label8.Text = "Nome";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(33, 289);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(923, 237);
+            dataGridView1.TabIndex = 12;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Nome";
+            Column1.Name = "Column1";
+            Column1.Width = 110;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Nif";
+            Column2.Name = "Column2";
+            Column2.Width = 110;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Telefone";
+            Column3.Name = "Column3";
+            Column3.Width = 110;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Email";
+            Column4.Name = "Column4";
+            Column4.Width = 110;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Morada";
+            Column5.Name = "Column5";
+            Column5.Width = 110;
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Animal";
+            Column6.Name = "Column6";
+            Column6.Width = 110;
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "Espécie";
+            Column7.Name = "Column7";
+            Column7.Width = 110;
+            // 
+            // Column8
+            // 
+            Column8.HeaderText = "Chip";
+            Column8.Name = "Column8";
+            Column8.Width = 110;
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(136, 216);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(563, 23);
+            textBox5.TabIndex = 11;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(136, 167);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(563, 23);
+            textBox4.TabIndex = 10;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(136, 123);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(563, 23);
+            textBox3.TabIndex = 9;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(136, 78);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(563, 23);
+            textBox2.TabIndex = 8;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(136, 35);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(563, 23);
+            textBox1.TabIndex = 7;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(82, 224);
+            label7.Name = "label7";
+            label7.Size = new Size(48, 15);
+            label7.TabIndex = 6;
+            label7.Text = "Morada";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(92, 174);
+            label6.Name = "label6";
+            label6.Size = new Size(36, 15);
+            label6.TabIndex = 5;
+            label6.Text = "Email";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(78, 131);
+            label5.Name = "label5";
+            label5.Size = new Size(52, 15);
+            label5.TabIndex = 4;
+            label5.Text = "Telefone";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(92, 86);
+            label4.Name = "label4";
+            label4.Size = new Size(23, 15);
+            label4.TabIndex = 3;
+            label4.Text = "Nif";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(92, 43);
+            label3.Name = "label3";
+            label3.Size = new Size(40, 15);
+            label3.TabIndex = 2;
+            label3.Text = "Nome";
+            // 
+            // button2
+            // 
+            button2.Location = new Point(695, 567);
+            button2.Name = "button2";
+            button2.Size = new Size(80, 30);
+            button2.TabIndex = 1;
+            button2.Text = "Pesquisar";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(795, 123);
+            button1.Name = "button1";
+            button1.Size = new Size(80, 30);
+            button1.TabIndex = 0;
+            button1.Text = "Registo";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // txtSeta
             // 
             txtSeta.AutoSize = true;
