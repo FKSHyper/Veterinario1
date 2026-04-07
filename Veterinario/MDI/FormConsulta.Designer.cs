@@ -33,7 +33,7 @@
             pnlMarcar = new Panel();
             btnSalvar = new Button();
             label3 = new Label();
-            textBox1 = new TextBox();
+            txtMotivo = new TextBox();
             label2 = new Label();
             label1 = new Label();
             dateTimePicker1 = new DateTimePicker();
@@ -70,7 +70,7 @@
             // 
             pnlMarcar.Controls.Add(btnSalvar);
             pnlMarcar.Controls.Add(label3);
-            pnlMarcar.Controls.Add(textBox1);
+            pnlMarcar.Controls.Add(txtMotivo);
             pnlMarcar.Controls.Add(label2);
             pnlMarcar.Controls.Add(label1);
             pnlMarcar.Controls.Add(dateTimePicker1);
@@ -91,6 +91,7 @@
             btnSalvar.TabIndex = 6;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = false;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // label3
             // 
@@ -101,14 +102,14 @@
             label3.TabIndex = 4;
             label3.Text = "Motivos/Sintomas:";
             // 
-            // textBox1
+            // txtMotivo
             // 
-            textBox1.Location = new Point(321, 61);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.ScrollBars = ScrollBars.Vertical;
-            textBox1.Size = new Size(295, 139);
-            textBox1.TabIndex = 4;
+            txtMotivo.Location = new Point(321, 61);
+            txtMotivo.Multiline = true;
+            txtMotivo.Name = "txtMotivo";
+            txtMotivo.ScrollBars = ScrollBars.Vertical;
+            txtMotivo.Size = new Size(295, 139);
+            txtMotivo.TabIndex = 4;
             // 
             // label2
             // 
@@ -202,7 +203,7 @@
         private Panel pnlVerConsultas;
         private ComboBox cbAnimais;
         private Label label3;
-        private TextBox textBox1;
+        private TextBox txtMotivo;
         private Label label2;
         private Label label1;
         private DateTimePicker dateTimePicker1;

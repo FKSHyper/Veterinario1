@@ -11,12 +11,22 @@ namespace Veterinario.DAL
 {
     internal class DatabaseHelper
     {
-        private static string connectionString = ConfigurationManager.AppSettings["ConnectionString"];
+        private static string ConnectionString
+        {
+            get
+            {
+                string s = ConfigurationManager.AppSettings["ConnectionString"];
+                if (string.IsNullOrEmpty(s))
+                    throw new Exception("A chave 'ConnectionString' não foi encontrada no App.config!");
+                return s;
+            }
+        }
 
         public static SqlConnection GetConnection()
         {
-            SqlConnection conn = new SqlConnection(connectionString);
-            if (conn.State != ConnectionState.Open) conn.Open();
+            // Agora usamos a propriedade com tratamento de erro
+            SqlConnection conn = new SqlConnection(ConnectionString);
+            conn.Open(); // Simplificado: Open() já verifica o estado
             return conn;
         }
 
