@@ -3,7 +3,6 @@ using System.Data;
 using Veterinario.Classes;
 using Veterinario.DAL;
 using Veterinario.MDI;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
 namespace Veterinario
 {
     public partial class Form1 : Form
@@ -153,12 +152,13 @@ namespace Veterinario
 
         private void plAnimal_Paint(object sender, PaintEventArgs e)
         {
+            plAnimal.BringToFront();
             plAnimal.Visible = true;
         }
 
         private void btnClients_Click(object sender, EventArgs e)
         {
-            plAnimal.Visible = false;
+            plCliente.BringToFront();
             plCliente.Visible = true;
         }
 

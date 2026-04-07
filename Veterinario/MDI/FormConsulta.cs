@@ -1,13 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Veterinario.Classes;
 using Veterinario.DAL;
 
@@ -149,42 +141,68 @@ namespace Veterinario.MDI
         {
             try
             {
-                // 1. Validação básica: verificar se selecionou um animal
+                // 1. Validações Iniciais
                 if (cbAnimais.SelectedValue == null)
                 {
-                    MessageBox.Show("Por favor, selecione um animal da lista!");
+                    MessageBox.Show("Por favor, selecione um animal!");
                     return;
                 }
 
-                // 2. Preparar o SQL de Inserção
-                // Nota: Os nomes das colunas devem ser iguais aos da tua tabela no SQL Server
-                string sql = "INSERT INTO Consulta (AnimalID, DataHora, Motivo) VALUES (@animalID, @data, @motivo)";
+                DateTime dataEscolhida = dateTimePicker1.Value;
 
-                // 3. Criar os parâmetros para evitar erros de formato e SQL Injection
-                SqlParameter[] p = {
+                if (dataEscolhida < DateTime.Now)
+                {
+                    MessageBox.Show("Não podes marcar consultas para o passado!");
+                    return;
+                }
+
+                // 2. VERIFICAÇÃO DE DISPONIBILIDADE
+                // Vamos ver se já existe uma consulta marcada num intervalo de 30 minutos
+                // (podes ajustar o tempo conforme a duração média das consultas)
+                string sqlVerificar = @"SELECT COUNT(*) FROM Consulta 
+                                WHERE DataHora >= DATEADD(minute, -30, @data) 
+                                AND DataHora <= DATEADD(minute, 30, @data)";
+
+                SqlParameter[] pVerificar = { new SqlParameter("@data", dataEscolhida) };
+
+                // Executamos uma query que devolve apenas um número
+                DataTable dt = Veterinario.DAL.DatabaseHelper.ExecuteQuery(sqlVerificar, pVerificar);
+                int conflitos = Convert.ToInt32(dt.Rows[0][0]);
+
+                if (conflitos > 0)
+                {
+                    MessageBox.Show("Já existe uma consulta marcada para este horário (ou muito próxima). Por favor, escolha outra hora!");
+                    return; // Interrompe o código aqui e não faz o Insert
+                }
+
+                // 3. SE PASSOU NA VERIFICAÇÃO, FAZEMOS O INSERT
+                string sqlInsert = "INSERT INTO Consulta (AnimalID, DataHora, Motivo) VALUES (@animalID, @data, @motivo)";
+
+                SqlParameter[] pInsert = {
             new SqlParameter("@animalID", cbAnimais.SelectedValue),
-            new SqlParameter("@data", dateTimePicker1.Value), // Confirma o nome do teu DateTimePicker
-            new SqlParameter("@motivo", txtMotivo.Text)      // Confirma o nome da tua TextBox
+            new SqlParameter("@data", dataEscolhida),
+            new SqlParameter("@motivo", txtMotivo.Text)
         };
 
-                // 4. Executar o comando através do teu DatabaseHelper
-                int linhasAfetadas = Veterinario.DAL.DatabaseHelper.ExecuteCommand(sql, p);
+                int resultado = Veterinario.DAL.DatabaseHelper.ExecuteCommand(sqlInsert, pInsert);
 
-                if (linhasAfetadas > 0)
+                if (resultado > 0)
                 {
                     MessageBox.Show("Consulta agendada com sucesso!");
-
-                    // Limpar os campos para a próxima
                     txtMotivo.Clear();
                     cbAnimais.SelectedIndex = -1;
 
-                    // Opcional: Mudar para o outro painel para ver a nova consulta na lista
-                    btnVerFuturas_Click(null, null);
+                    // Atualizar a lista automaticamente para ver a nova marcação
+                    CarregarConsultasFuturas();
+
+                    EsconderPaineis();
+                    pnlVerConsultas.Visible = true;
+                    pnlVerConsultas.BringToFront();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao salvar consulta: " + ex.Message);
+                MessageBox.Show("Erro ao validar/salvar: " + ex.Message);
             }
         }
     }
